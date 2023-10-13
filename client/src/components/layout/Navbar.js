@@ -55,7 +55,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <div className="nav-wrapper">
         
         <Link to='/' className='brand-logo left'>
-          Echo-Mate
+          EchoMate
         </Link>
         
       {!loading && (
