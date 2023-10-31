@@ -73,177 +73,227 @@ const EditProfile = ({
     e.preventDefault();
     //  console.log(company);
     createProfile(formData, history, true);
-    <Navigate to='/dashboard' />
-
+    <Navigate to='/dashboard' />;
   };
   return (
-    <div className='container'>
-      <h1 className='large blue-text text-darken-4'>Update Your Profile</h1>
+    <div className='container-fluid'>
+      <div className='row '>
+        <div className='card' style={{ width: '60rem', marginLeft: '8%' }}>
+          <div className='card-header text-center m-3'>
+            <h2 className=''>Update Your Profile</h2>
+          </div>
 
-      {/* <small>* = required field</small> */}
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <div className='form-group'>
-          <select name='status' onChange={(e) => onChange(e)} value={status}>
-            <option value='0'>* Select Professional Status</option>
-            <option value='Developer'>Developer</option>
-            <option value='Junior Developer'>Junior Developer</option>
-            <option value='Senior Developer'>Senior Developer</option>
-            <option value='Manager'>Manager</option>
-            <option value='Student or Learning'>Student or Learning</option>
-            <option value='Instructor'>Instructor or Teacher</option>
-            <option value='Intern'>Intern</option>
-            <option value='Other'>Other</option>
-          </select>
-          <small className='form-text'>
-            Give us an idea of where you are at in your career
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Company'
-            name='company'
-            onChange={(e) => onChange(e)}
-            value={company}
-          />
-          <small className='form-text'>
-            Could be your own company or one you work for
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Website'
-            name='website'
-            onChange={(e) => onChange(e)}
-            value={website}
-          />
-          <small className='form-text'>
-            Could be your own or a company website
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Location'
-            name='location'
-            onChange={(e) => onChange(e)}
-            value={location}
-          />
-          <small className='form-text'>
-            City & state suggested (eg. Boston, MA)
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='* Skills'
-            name='skills'
-            onChange={(e) => onChange(e)}
-            value={skills}
-          />
-          <small className='form-text'>
-            Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Github Username'
-            name='githubusername'
-            onChange={(e) => onChange(e)}
-            value={githubusername}
-          />
-          <small className='form-text'>
-            If you want your latest repos and a Github link, include your
-            username
-          </small>
-        </div>
-        <div className='form-group'>
-          <textarea
-            placeholder='A short bio of yourself'
-            name='bio'
-            onChange={(e) => onChange(e)}
-            value={bio}
-          ></textarea>
-          <small className='form-text'>Tell us a little about yourself</small>
-        </div>
+          <div className='card-body'>
+            {/* <small>* = required field</small> */}
+            <form className='form' onSubmit={(e) => onSubmit(e)} autoComplete='off'>
+              {/* <div className='form-group'> */}
+              {/* <select
+                className='form-control'
+                  name='status'
+                  onChange={(e) => onChange(e)}
+                  value={status}
+                >
+                  <option value='0'>* Select Professional Status</option>
+                  <option value='Developer'>Developer</option>
+                  <option value='Junior Developer'>Junior Developer</option>
+                  <option value='Senior Developer'>Senior Developer</option>
+                  <option value='Manager'>Manager</option>
+                  <option value='Student or Learning'>
+                    Student or Learning
+                  </option>
+                  <option value='Instructor'>Instructor or Teacher</option>
+                  <option value='Intern'>Intern</option>
+                  <option value='Other'>Other</option>
+                </select> */}
 
-        <div className='my-2'>
-          <button
-            type='button'
-            onClick={(e) => toggleSocialInputs(!socialInputs)}
-            className='btn blue darken-4'
-          >
-            Add Social Network Links
-          </button>
-          <span>Optional</span>
+              <div className='form-group mb-3'>
+                <small className='fs-6'>Professional status</small>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='Status'
+                  name='status'
+                  onChange={(e) => onChange(e)}
+                  value={status}
+                />
+              </div>
+              {/* </div> */}
+
+              <div className='form-group mb-3'>
+                <small className='fs-6'>Company</small>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='Company'
+                  name='company'
+                  onChange={(e) => onChange(e)}
+                  value={company}
+                />
+              </div>
+
+              <div className='form-group mb-3'>
+                <small className='fs-6'>Website</small>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='Website'
+                  name='website'
+                  onChange={(e) => onChange(e)}
+                  value={website}
+                />
+              </div>
+              <div className='form-group mb-3'>
+                <small className='fs-6'>Location (City & state )</small>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='Location'
+                  name='location'
+                  onChange={(e) => onChange(e)}
+                  value={location}
+                />
+              </div>
+              <div className='form-group mb-3'>
+                <small className='fs-6'>
+                  Skills (eg. HTML,CSS,JavaScript,PHP)
+                </small>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='* Skills'
+                  name='skills'
+                  onChange={(e) => onChange(e)}
+                  value={skills}
+                />
+              </div>
+              <div className='form-group mb-3'>
+                <small className='fs-6'>Github link with username</small>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='Github Username'
+                  name='githubusername'
+                  onChange={(e) => onChange(e)}
+                  value={githubusername}
+                />
+              </div>
+
+              <div className='form-group'>
+                <small className='fs-6'>Tell us a little about yourself</small>
+                <textarea
+                  className='form-control form-control-sm'
+                  placeholder='A short bio of yourself'
+                  name='bio'
+                  onChange={(e) => onChange(e)}
+                  value={bio}
+                ></textarea>
+              </div>
+
+              <div className='mb-4'>
+                <button
+                  type='button'
+                  onClick={(e) => toggleSocialInputs(!socialInputs)}
+                  className='btn btn-secondary btn-sm'
+                >
+                  Add Social Network Links
+                </button>
+                <span className='text-secondary'>Optional</span>
+              </div>
+
+              {socialInputs && (
+                <Fragment>
+                  <div className='row form-group social-input mb-2'>
+                    <div className='col-2 text-center'>
+                      <i className='fab fa-twitter fa-2x'> </i>
+                    </div>
+                    <div className='col-10'>
+                      <input
+                        className='form-control form-control-sm'
+                        type='text'
+                        placeholder='Twitter URL'
+                        name='twitter'
+                        onChange={(e) => onChange(e)}
+                        value={twitter}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='row form-group social-input mb-2'>
+                    <div className='col-2 text-center'>
+                      <i className='fab fa-facebook fa-2x'></i>
+                    </div>
+                    <div className='col-10'>
+                      <input
+                        className='form-control form-control-sm'
+                        type='text'
+                        placeholder='Facebook URL'
+                        name='facebook'
+                        onChange={(e) => onChange(e)}
+                        value={facebook}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='row form-group social-input mb-2'>
+                    <div className='col-2 text-center'>
+                      <i className='fab fa-youtube fa-2x'></i>
+                    </div>
+
+                    <div className='col-10'>
+                      <input
+                        className='form-control form-control-sm'
+                        type='text'
+                        placeholder='YouTube URL'
+                        name='youtube'
+                        onChange={(e) => onChange(e)}
+                        value={youtube}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='row form-group social-input mb-2'>
+                    <div className='col-2 text-center'>
+                      <i className='fab fa-linkedin fa-2x'></i>
+                    </div>
+
+                    <div className='col-10'>
+                      <input
+                        className='form-control form-control-sm'
+                        type='text'
+                        placeholder='Linkedin URL'
+                        name='linkedin'
+                        onChange={(e) => onChange(e)}
+                        value={linkedin}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='row form-group social-input mb-2'>
+                    <div className='col-2 text-center'>
+                      <i className='fab fa-instagram fa-2x'></i>
+                    </div>
+                    <div className='col-10'>
+                      <input
+                        className='form-control form-control-sm'
+                        type='text'
+                        placeholder='Instagram URL'
+                        name='instagram'
+                        onChange={(e) => onChange(e)}
+                        value={instagram}
+                      />
+                    </div>
+                  </div>
+                </Fragment>
+              )}
+
+              <input type='submit' className='btn btn-dark btn-sm' />
+              <Link className='btn btn-dark btn-sm' to='/dashboard'>
+                Go Back
+              </Link>
+            </form>
+          </div>
         </div>
-
-        {socialInputs && (
-          <Fragment>
-            <div className='form-group social-input'>
-              <i className='fab fa-twitter fa-2x'></i>
-              <input
-                type='text'
-                placeholder='Twitter URL'
-                name='twitter'
-                onChange={(e) => onChange(e)}
-                value={twitter}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-facebook fa-2x'></i>
-              <input
-                type='text'
-                placeholder='Facebook URL'
-                name='facebook'
-                onChange={(e) => onChange(e)}
-                value={facebook}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-youtube fa-2x'></i>
-              <input
-                type='text'
-                placeholder='YouTube URL'
-                name='youtube'
-                onChange={(e) => onChange(e)}
-                value={youtube}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-linkedin fa-2x'></i>
-              <input
-                type='text'
-                placeholder='Linkedin URL'
-                name='linkedin'
-                onChange={(e) => onChange(e)}
-                value={linkedin}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-instagram fa-2x'></i>
-              <input
-                type='text'
-                placeholder='Instagram URL'
-                name='instagram'
-                onChange={(e) => onChange(e)}
-                value={instagram}
-              />
-            </div>
-          </Fragment>
-        )}
-
-        <input type='submit' className='btn blue darken-4' />
-        <Link className='btn grey darken-4' to='/dashboard'>
-          Go Back
-        </Link>
-      </form>
+      </div>
     </div>
   );
 };
@@ -258,7 +308,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })
-  (EditProfile
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  EditProfile
 );

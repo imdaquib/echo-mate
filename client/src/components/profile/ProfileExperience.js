@@ -8,20 +8,21 @@ const ProfileExperience = ({
       }
 }) => {
   return (
-    <ul className='collection'>
-          <li className='collection-item'><h3 className="text-dark">{company}</h3></li>
-          <li className='collection-item'>
-                  { location && <strong>Location : {location} </strong>  }
+    <ul className='list-group'>
+          <li className='list-group-item'> <strong>Company : </strong>{company}</li>
+          <li className='list-group-item'>
+          <strong> Location : </strong>   {location} 
             </li>
-          <li className='collection-item'>
-                <Moment format='DD-MM-YYYY'>{from}</Moment> ---{' '}
-                {!to ? 'Now' : <Moment format='DD-MM-YYYY'> {to} </Moment>}
+          <li className='list-group-item'>
+            <strong>Year : </strong>
+                <Moment format='YYYY'>{from}</Moment> - {'  '}
+                {!to ? 'Present' : <Moment format='YYYY'> {to} </Moment>}
           </li>
-          <li className='collection-item'>
+          <li className='list-group-item'>
                 <strong>Position: </strong> {title}
           </li>
-          <li className='collection-item'>
-              { description &&   <strong>Description: { description}</strong> }
+          <li className='list-group-item  '>
+            <strong> Description : </strong>    { description} 
           </li>
     </ul>
   )

@@ -6,12 +6,14 @@ import { addComment } from '../../actions/post';
 const CommentForm = ({postId,addComment}) => {
   const [text, setText] = useState('')
   return  (
-    // <div >
-           <div className="post-form">
-        <div className="bg-primary p">
+    <div className='container-fluid'>
+           <div className="row">
+
+        <div className="">
           <h3>Leave A Comment</h3>
         </div>
-        <form className="form my-1" 
+        <hr />
+        <form className="form" 
         onSubmit={e=>{
           e.preventDefault();
           addComment(postId, { text})
@@ -19,17 +21,17 @@ const CommentForm = ({postId,addComment}) => {
         }}>
           <textarea
             name="text"
+            className='form-control'
             value={text}
             onChange={e=>setText(e.target.value)}
-            cols="30"
-            rows="5"
+            
             placeholder="Comment on this post"
             required
           ></textarea>
-          <input type="submit" className="btn blue darken-4" value="Submit" />
+          <input type="submit" className="btn btn-dark btn-sm" value="Submit" />
         </form>
       </div>
-    // </div>
+     </div>
   )
 }
 

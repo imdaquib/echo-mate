@@ -31,16 +31,21 @@ const AddExperience = ({ addExperience }) => {
 
   
   return (
-    <div className='container'>
-      <h1 className='large blue-text text-darken-4'>Add An Experience</h1>
-      <h5>
-        <i className='fas fa-code-branch'></i> Add any developer/programming
-        positions that you have had in the past
-      </h5>
+    <div className='container-fluid'>
+      <div className="row">
+        <div className="card " style={{ width: '60rem', marginLeft: '8%' }}>
+          <div className="card-header text-center m-3">
+      <h1 className='large blue-text text-darken-4'>  <i className='fab fa-black-tie'></i> Add Your Experience</h1>
+            
+          </div>
+          <div className="card-body">
+              
      
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <div className='form-group'>
+     
+      <form className='form' onSubmit={(e) => onSubmit(e)} autoComplete='off'>
+        <div className='form-group mb-3'>
           <input
+          className='form-control form-control-sm'
             type='text'
             placeholder='* Job Title'
             name='title'
@@ -48,8 +53,10 @@ const AddExperience = ({ addExperience }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-3'>
           <input
+          className='form-control form-control-sm'
+
             type='text'
             placeholder='* Company'
             name='company'
@@ -57,8 +64,10 @@ const AddExperience = ({ addExperience }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-3'>
           <input
+          className='form-control form-control-sm'
+
             type='text'
             placeholder='Location'
             name='location'
@@ -66,16 +75,18 @@ const AddExperience = ({ addExperience }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-3'>
           <h5>From Date</h5>
           <input
+          className='form-control form-control-sm'
+
             type='date'
             name='from'
             value={from}
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-3'>
           <p>
             <input
               type='checkbox'
@@ -90,9 +101,11 @@ const AddExperience = ({ addExperience }) => {
             Current Job
           </p>
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-3'>
           <h5>To Date</h5>
           <input
+          className='form-control form-control-sm'
+
             type='date'
             name='to'
             value={to}
@@ -100,8 +113,10 @@ const AddExperience = ({ addExperience }) => {
             disabled={toDateDisable ? 'disabled' : ''}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-3'>
           <textarea
+          className='form-control form-control-sm'
+
             name='description'
             cols='30'
             rows='5'
@@ -110,12 +125,15 @@ const AddExperience = ({ addExperience }) => {
             onChange={(e) => onChange(e)}
           ></textarea>
         </div>
-        <input type='submit' className='btn blue darken-4' />
-        <a className='btn grey darken-4' href='/dashboard'>
+        <input type='submit' className='btn btn-sm btn-dark' />
+        <a className='btn btn-sm btn-dark' href='/dashboard'>
           Go Back
         </a>
       </form>
     </div>
+    </div>
+        </div>
+      </div>
   );
 };
 

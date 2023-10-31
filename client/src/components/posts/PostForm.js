@@ -8,12 +8,12 @@ const PostForm = ({addPost}) => {
   const [text, setFormData]  = useState('');
 
   return (
-          <div className="post-form">
-        <div className="bg-primary p">
-          <h3>Say Something...</h3>
+          <div className="container-fluid">
+        <div className="">
+          {/* <h3>Say Something...</h3> */}
         </div>
 
-        <form className="form my-1"
+        <form className="form"
         onSubmit={e=>{
           e.preventDefault();
           addPost({text});
@@ -21,15 +21,15 @@ const PostForm = ({addPost}) => {
         }}
         >
           <textarea
-            cols="30"
-            className='materialize-textarea'
+            cols="20"
+            className='form-control'
             rows="5"
             placeholder="Create a post"
             name='text'
             value={text}
             onChange={e => setFormData(e.target.value)}
           ></textarea>
-          <input type="submit" className="btn blue darken-4" value="Submit" />
+          <input type="submit" className="btn btn-dark btn-sm" value="Submit" />
         </form>
         </div>
   )

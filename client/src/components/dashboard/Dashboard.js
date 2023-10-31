@@ -21,12 +21,18 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Spinner />
   ) : (
-    // <div className='container'>
+    <div className='container-fluid'>
       <Fragment>
-        <h1 className='large blue-text text-darken-4'>Dashboard</h1>
-        <h4 className='lead med'>
-          <i className='fa fa-user' /> Welcome  {user &&  user.name}
+        <div className="conatainer-fluid">
+          <div className="mt-3">
+          <h1 className='text-center text-decoration-underline'>Dashboard</h1>
+        <h4 className=''>
+          <i className='fa fa-user' /> Welcome <i className='text-secondary'> {user &&  user.name}</i>
         </h4>
+          </div>
+        </div>
+        <hr />
+        
 
         {profile !== null ? (
           <Fragment>
@@ -35,21 +41,24 @@ const Dashboard = ({
             <Experience experience={profile.experience} />
 
             <div className="my-2">
-              <button className="btn red" style={{marginTop: '10px'}} onClick={()=> deleteAccount() }>
-                <i className="fas fa-user-minus"></i> Delete Account
+              <button className=" btn btn-secondary btn-sm" style={{marginTop: '10px'}} onClick={()=> deleteAccount() }>
+                <i className="fas fa-user-minus"> {' '}</i> Delete Account
               </button>
             </div>
           </Fragment>
         ) : (
           <Fragment>
-            <p>Setup your profile</p>
-            <Link to='/create-profile' className='btn blue darken-4 '>
+            <div className='text-center center'>
+            <h2>Setup your profile</h2>
+            <Link to='/create-profile' className='btn btn-dark btn-sm'>
                 Create Profile
             </Link>
+            </div>
+            
           </Fragment>
         )}
       </Fragment>
-    //  </div>
+     </div>
   );
 };
 

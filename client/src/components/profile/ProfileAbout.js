@@ -9,23 +9,36 @@ const ProfileAbout =({
       }
 }) => {
   return (
-    <div className='center card'>
+    <div className='container-fluid text-center'>
+      <div className="row ">
+
+      <div className="col"></div>
+      <div className="col">
           { bio && (
                 <Fragment>
-                      <h4 className="blue-text text-darken-4">{name.trim().split(' ')[0]}'s Bio</h4>
+                  {/* {name.trim().split(' ')[0]}'s */}
+                      <h4 className=" text-decoration-underline"> About</h4>
                       <p>{bio}</p>
-                      <div className="line"></div>
+                      {/* <div className="line"></div> */}
                 </Fragment>
           )}
-
-          <h4 className="blue-text text-darken-4">Skill Set</h4>
-          <div className="">
-                {skills && skills.map((skill, index) =>(
-                      <div key={index} className=" card-action">
-                         <i className="fas fa-check"></i>   {skill}
+            <Fragment>
+            <h4 className="text-decoration-underline">Skills</h4>
+          
+          <div className="container">
+            
+                  {skills && skills.map((skill, index) =>(
+                      <div key={index} className="" >
+                          <i className='fas fa-chekk'></i> {skill}
                       </div>
                 ))}
+                
+               
           </div>
+            </Fragment>
+            </div>
+            <div className="col"></div>
+    </div>
     </div>
   )
 }

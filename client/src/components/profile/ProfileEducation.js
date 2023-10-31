@@ -8,19 +8,25 @@ const ProfileEducation = ({
       }
 }) => {
   return (
-    <ul className='collection'>
-         <li className="collection-item"> <h3 className="text-dark">{school}</h3></li>
-          <li className='collection-item'>
-                <Moment format='DD-MM-YYYY'>{from}</Moment> to {' '}
-                {!to ? 'Continue' : <Moment format='DD-MM-YYYY'>{to}</Moment>}
+      <div className="conatiner">
+            <div className="row">
+                  
+      
+    <ul className='list-group'>
+         <li className="list-group-item"><strong> College : </strong> {school}</li>
+         
+          <li className='list-group-item'>
+            <strong>Year : </strong>
+                <Moment format='YYYY'>{from}</Moment> - {'  '}
+                {!to ? 'Continue' : <Moment format='YYYY'>{to}</Moment>}
           </li>
-          <li className='collection-item'>
+          <li className='list-group-item'>
                 <strong>Degree : </strong> { degree }
           </li>
-          <li className='collection-item'>
+          <li className='list-group-item'>
                 <strong>Field of Study : </strong> {fieldofstudy}
           </li>
-          <li className='collection-item'>
+          <li className='list-group-item'>
                 { description && (
                 <Fragment>
                    <strong>Description : </strong>   { description }
@@ -29,6 +35,8 @@ const ProfileEducation = ({
                 )}
           </li>
     </ul>
+    </div>
+      </div>
   )
 }
 

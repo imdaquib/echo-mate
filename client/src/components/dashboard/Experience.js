@@ -10,17 +10,24 @@ const Experience = ({ experience, deleteExperience }) => {
       <td> {exp.company} </td>
       <td className='hide-sm'>{exp.title}</td>
       <td>
-        <Moment format='DD-MM-YYYY'>{exp.from}</Moment>---{' '}
-        {!exp.to ? 'Now' : <Moment format='DD-MM-YYYY'>{exp.to}</Moment>}
+        <Moment format='YYYY'>{exp.from}</Moment> - {' '}
+        {!exp.to ? 'Present' : <Moment format='YYYY'>{exp.to}</Moment>}
       </td>
       <td>
-        <button className='btn red'  onClick={()=> deleteExperience(exp._id)}>Delete</button>
+        <button className='btn btn-secondary btn-sm'  onClick={()=> deleteExperience(exp._id)}>Delete</button>
       </td>
     </tr>
   ));
   return (
-    <div>
-      <h2 className='my-2'>Work Experience</h2>
+    <div className='container-fluid'>
+      <div className="row">
+
+    <div className="card">
+      <div className="card-header">
+      <h2 className=''>Work Experience</h2>
+
+      </div>
+      <div className="card-body">
       <table className='table'>
         <thead>
           <tr>
@@ -32,6 +39,10 @@ const Experience = ({ experience, deleteExperience }) => {
         </thead>
         <tbody>{experiences}</tbody>
       </table>
+      </div>
+    </div>
+     
+    </div>
     </div>
   );
 };

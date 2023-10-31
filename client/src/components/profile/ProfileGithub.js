@@ -10,35 +10,38 @@ const ProfileGithub = ({ getGithubRepos, username, repos }) => {
   }, [getGithubRepos]);
 
   return (
-    <div className='card'>
-      <h2 className='blue-text text-darken-4'>Github Repos</h2>
-      <div className="card-action">
+    <div className=''>
+      <h2 className='text-decoration-underline'>Github Repos</h2>
+      <div className="">
       {repos === null ? (
         <Spinner />
       ) : (
             repos.map(repo=>(
-        <div key={repo.id} className='row card-action'>
-             <div className='col s9'>
+        <div key={repo.id} className='row mb-2'>
+             <div className='col-9'>
              <h4 >
-                    <a href={repo.html_url} className='black-text' target='_blank' rel='noopener noreferrer'>{repo.name}</a>
+                    <a  href={repo.html_url} className='link link-dark' target='_blank' rel='noopener noreferrer'>{repo.name}</a>
               </h4>
               <p>{repo.description}</p>
              </div>
 
-             <div className='right-align col s3'>
-                   <ul className='collection'>
-                         <li className="collection-item">
+             <div className='right-align col-3'>
+                   <ul className='list-group'>
+                         <li className="list-group-item">
                                Stars : {repo.stargazers_count}
                          </li>
-                         <li className="collection-item">
+                         <li className="list-group-item">
                                Watchers : {repo.watchers_count}
                          </li>
-                         <li className="collection-item">
+                         <li className="list-group-item">
                                Forks : { repo.forks_count}
                          </li>
                    </ul>
              </div>
+
+             <hr />
         </div>
+        
         
      
             ))

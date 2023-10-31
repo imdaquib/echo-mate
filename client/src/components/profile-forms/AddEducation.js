@@ -31,94 +31,119 @@ const AddEducation = ({ addEducation }) => {
 
     addEducation(formData);
     //   console.log(formData);
-    return <Navigate to='/dashboard' />
+    return <Navigate to='/dashboard' />;
   };
 
   return (
-    <div className='container'>
-      <h1 className='large blue-text text-darken-4'>Add Your Education</h1>
-      <h5 className='lead'>
-        <i className='fas fa-graduation-cap'></i> Add any school, bootcamp, etc
-        that you have attended
-      </h5>
+    <div className='container-fluid'>
+      <div className='row'>
+        <div className='card' style={{ width: '60rem', marginLeft: '8%' }}>
+          <div className='card-header text-center m-3'>
+            <h1 className='large blue-text text-darken-4'>
+              {' '}
+              <i className='fas fa-graduation-cap'></i> Add Your Education
+            </h1>
+          </div>
+
+          <div className='card-body'>
+            <form
+              className='form'
+              onSubmit={(e) => onSubmit(e)}
+              autoComplete='off'
+            >
+              <div className='form-group mb-3'>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='* School / University'
+                  name='school'
+                  value={school}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+
+              <div className='form-group mb-3'>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='* Degree or Certificate'
+                  name='degree'
+                  value={degree}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+
+              <div className='form-group mb-3'>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  placeholder='Field Of Study'
+                  name='fieldofstudy'
+                  value={fieldofstudy}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+
+              <div className='form-group mb-3'>
+                <h6>From Date</h6>
+                <input
+                  className='form-control form-control-sm'
+                  type='date'
+                  name='from'
+                  value={from}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+
+              <div className='form-group mb-3'>
+                <p>
+                  <input
+                    // className='form-control form-control-sm'
+                    type='checkbox'
+                    name='current'
+                    checked={current}
+                    value={current}
+                    onChange={(e) => {
+                      setFormData({ ...formData, current: !current });
+                      toggleDisabled(!toDateDisabled);
+                    }}
+                  />{' '}
+                  Present
+                </p>
+              </div>
+              <div className='form-group mb-3'>
+                <h6>To Date</h6>
+                <input
+                  className='form-control form-control-sm'
+                  type='date'
+                  name='to'
+                  value={to}
+                  onChange={(e) => onChange(e)}
+                  disabled={toDateDisabled}
+                />
+              </div>
+
+              <div className='form-group mb-3'>
+                <textarea
+                  className='form-control form-control-sm'
+                  name='description'
+                  cols='30'
+                  rows='5'
+                  placeholder='Program Description'
+                  value={description}
+                  onChange={(e) => onChange(e)}
+                ></textarea>
+              </div>
+              <input type='submit' className='btn btn-dark btn-sm' />
+              <a className='btn btn-dark btn-sm' href='/dashboard'>
+                Go Back
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+
       {/* <small>* = required field</small> */}
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='* School or Bootcamp'
-            name='school'
-            value={school}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='* Degree or Certificate'
-            name='degree'
-            value={degree}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Field Of Study'
-            name='fieldofstudy'
-            value={fieldofstudy}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <h6>From Date</h6>
-          <input
-            type='date'
-            name='from'
-            value={from}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <p>
-            <input
-              type='checkbox'
-              name='current'
-              checked={current}
-              value={current}
-              onChange={(e) => {
-                setFormData({ ...formData, current: !current });
-                toggleDisabled(!toDateDisabled);
-              }}
-            />{' '}
-            Current School or Bootcamp
-          </p>
-        </div>
-        <div className='form-group'>
-          <h6>To Date</h6>
-          <input
-            type='date'
-            name='to'
-            value={to}
-            onChange={(e) => onChange(e)}
-            disabled={toDateDisabled}
-          />
-        </div>
-        <div className='form-group'>
-          <textarea
-            name='description'
-            cols='30'
-            rows='5'
-            placeholder='Program Description'
-            value={description}
-            onChange={(e) => onChange(e)}
-          ></textarea>
-        </div>
-        <input type='submit' className='btn blue darken-4' />
-        <a className='btn grey darken-4' href='/dashboard'>
-          Go Back
-        </a>
-      </form>
     </div>
   );
 };

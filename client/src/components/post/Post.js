@@ -17,17 +17,17 @@ const Post = ({getPost, post: { post, loading }}) => {
 
   return loading || post === null ? (<Spinner />) : (
     <Fragment>
-      {/* <section className='container'> */}
+      <div className='container'>
 
       <PostItem post={post} showActions={false} />
           <CommentForm postId={post._id}/>
 
-          <div className="comments">
+          <div className="card">
             {post.comments.map(comment=>(
               <CommentItem key={comment._id} comment={comment} postId={post._id} />
             ))}
           </div>
-      {/* </section> */}
+      </div>
     </Fragment>
   )
 }

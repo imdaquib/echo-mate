@@ -15,10 +15,18 @@ const Posts = ({ getAllPosts,auth, post: {posts, loading, _id, user }}) => {
 
   return loading ?  <Spinner /> : <div className='container'>
           <Fragment>
-           <h1 className="large  blue-text text-darken-4">
-        Posts
+            <div className="row">
+
+              <div className='text-center m-3'>
+              <h1 className="">
+       All Posts
       </h1>
-      <h4 className="lead"><i className="fas fa-user"></i> Welcome to the community!</h4>
+      <h4 className=""><i className="fas fa-user"></i> Welcome to the community!</h4>
+              </div>
+              <hr />
+        
+            </div>
+        
 
        { auth.user && (
           <PostForm />
