@@ -64,7 +64,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             height='24'
             className='d-inline-block align-text-top'
           />
-          EchoMate A Social Media App
+          EchoMate 
         </Link>
 
         {!loading && (
